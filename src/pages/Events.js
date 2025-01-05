@@ -1,53 +1,5 @@
 import { motion } from 'framer-motion';
-import styled from '@emotion/styled';
-
-const EventsContainer = styled.div`
-  min-height: 100vh;
-  padding: 80px 2rem 2rem;
-`;
-
-const Content = styled.div`
-  max-width: 1000px;
-  margin: 0 auto;
-`;
-
-const Title = styled(motion.h1)`
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  text-align: center;
-  color: #1a1a1a;
-`;
-
-const EventCard = styled(motion.div)`
-  background: white;
-  border-radius: 10px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: 2rem;
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
-`;
-
-const EventDate = styled.div`
-  text-align: center;
-  padding: 1rem;
-  background: #f5f5f5;
-  border-radius: 8px;
-  
-  h3 {
-    font-size: 2rem;
-    color: #1a1a1a;
-  }
-  
-  p {
-    color: #666;
-  }
-`;
+import CyberLayout from '../components/CyberLayout';
 
 const events = [
   {
@@ -78,37 +30,41 @@ const events = [
 
 function Events() {
   return (
-    <EventsContainer>
-      <Content>
-        <Title
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          Upcoming Events
-        </Title>
-        {events.map((event, index) => (
-          <EventCard
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
+    <CyberLayout>
+      <div className="px-8 pt-20">
+        <div className="max-w-4xl mx-auto">
+          <motion.h1
+            className="text-4xl mb-12 text-center text-gray-900"
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ y: -5 }}
+            transition={{ duration: 0.5 }}
           >
-            <EventDate>
-              <h3>{event.date}</h3>
-              <p>{event.month}</p>
-              <p>{event.year}</p>
-            </EventDate>
-            <div>
-              <h2>{event.title}</h2>
-              <p style={{ margin: '1rem 0' }}>{event.description}</p>
-              <p style={{ color: '#666' }}>📍 {event.location}</p>
-            </div>
-          </EventCard>
-        ))}
-      </Content>
-    </EventsContainer>
+            Upcoming Events
+          </motion.h1>
+
+          {events.map((event, index) => (
+            <motion.div
+              key={index}
+              className="bg-white rounded-lg p-8 mb-8 shadow-lg grid grid-cols-1 md:grid-cols-4 gap-8 hover:-translate-y-1 transition-transform duration-200"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <div className="text-center p-4 bg-gray-50 rounded-lg">
+                <h3 className="text-3xl text-gray-900">{event.date}</h3>
+                <p className="text-gray-600">{event.month}</p>
+                <p className="text-gray-600">{event.year}</p>
+              </div>
+              <div className="md:col-span-3">
+                <h2 className="text-2xl text-gray-900 mb-4">{event.title}</h2>
+                <p className="text-gray-600 mb-4">{event.description}</p>
+                <p className="text-gray-500">📍 {event.location}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </CyberLayout>
   );
 }
 

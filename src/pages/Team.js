@@ -1,63 +1,5 @@
 import { motion } from 'framer-motion';
-import styled from '@emotion/styled';
-
-const TeamContainer = styled.div`
-  min-height: 100vh;
-  padding: 80px 2rem 2rem;
-  background: #fff;
-`;
-
-const Content = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-`;
-
-const SectionTitle = styled(motion.h1)`
-  font-size: 2.5rem;
-  text-align: center;
-  margin: 3rem 0;
-  color: #000;
-  font-weight: 700;
-`;
-
-const TeamGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 4rem;
-`;
-
-const MemberCard = styled(motion.div)`
-  text-align: center;
-  padding: 2rem;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-
-  img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 1rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-    margin: 0.5rem 0;
-    color: #000;
-  }
-
-  p {
-    color: #666;
-    font-size: 1rem;
-  }
-`;
-
-const DepartmentSection = styled.div`
-  margin-bottom: 4rem;
-`;
+import CyberLayout from '../components/CyberLayout';
 
 function Team() {
   const teamMembers = {
@@ -113,109 +55,268 @@ function Team() {
   };
 
   return (
-    <TeamContainer>
-      <Content>
-        <SectionTitle
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          TEACHER IN-CHARGE
-        </SectionTitle>
-        <TeamGrid>
-          {teamMembers.inCharge.map((member, index) => (
-            <MemberCard
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
+    <CyberLayout>
+      <div className="min-h-screen px-4 sm:px-6 lg:px-8 py-20">
+        <div className="container mx-auto max-w-7xl flex flex-col items-center">
+          {/* Teacher In-Charge Section */}
+          <div className="w-full flex flex-col items-center mb-20">
+            <motion.h1
+              className="text-5xl md:text-6xl text-center mb-12 font-bold bg-gradient-to-r from-cyber-blue via-cyber-purple to-cyber-pink bg-clip-text text-transparent"
+              initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
+              transition={{ duration: 1.2 }}
             >
-              <img src={member.image} alt={member.name} />
-              <h3>{member.name}</h3>
-              <p>{member.role}</p>
-            </MemberCard>
-          ))}
-        </TeamGrid>
-
-        <SectionTitle>CHAIRPERSON</SectionTitle>
-        <TeamGrid>
-          {teamMembers.chairpersons.map((member, index) => (
-            <MemberCard
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-            >
-              <img src={member.image} alt={member.name} />
-              <h3>{member.name}</h3>
-              <p>{member.role}</p>
-            </MemberCard>
-          ))}
-        </TeamGrid>
-
-        <SectionTitle>DEPUTY CHAIRPERSON</SectionTitle>
-        <TeamGrid>
-          {teamMembers.deputyChairperson.map((member, index) => (
-            <MemberCard
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-            >
-              <img src={member.image} alt={member.name} />
-              <h3>{member.name}</h3>
-              <p>{member.role}</p>
-            </MemberCard>
-          ))}
-        </TeamGrid>
-
-        <SectionTitle>VICE CHAIRPERSON</SectionTitle>
-        <TeamGrid>
-          {teamMembers.viceChairpersons.map((member, index) => (
-            <MemberCard
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-            >
-              <img src={member.image} alt={member.name} />
-              <h3>{member.name}</h3>
-              <p>{member.role}</p>
-            </MemberCard>
-          ))}
-        </TeamGrid>
-
-        <SectionTitle>HEAD OF DEPARTMENTS</SectionTitle>
-        {Object.entries(teamMembers.departments).map(([dept, members]) => (
-          <DepartmentSection key={dept}>
-            <SectionTitle style={{ fontSize: '2rem' }}>
-              {dept === 'pr' ? 'PUBLIC RELATIONS' : 
-               dept === 'gaming' ? 'GAMING & SPORTS' :
-               dept.toUpperCase()}
-            </SectionTitle>
-            <TeamGrid>
-              {members.map((member, index) => (
-                <MemberCard
+              TEACHER IN-CHARGE
+            </motion.h1>
+            
+            <div className="w-full max-w-4xl flex justify-center">
+              {teamMembers.inCharge.map((member, index) => (
+                <motion.div
                   key={index}
+                  className="w-full max-w-[280px] text-center p-8 bg-black/40 backdrop-blur-sm rounded-xl 
+                            border border-cyber-blue/30 
+                            shadow-[0_0_15px_rgba(0,243,255,0.2)] 
+                            hover:shadow-[0_0_30px_rgba(0,243,255,0.4)]
+                            transition-all duration-700 hover:-translate-y-2
+                            group"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -10 }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
                 >
-                  <img src={member.image} alt={member.name} />
-                  <h3>{member.name}</h3>
-                  <p>{member.role}</p>
-                </MemberCard>
+                  <div className="relative overflow-hidden">
+                    <img 
+                      src={member.image} 
+                      alt={member.name} 
+                      className="w-full h-auto object-cover mx-auto mb-4 
+                               border-2 border-cyber-blue/50 
+                               group-hover:border-cyber-pink/50 
+                               transition-all duration-700
+                               group-hover:scale-105"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-bold text-cyber-blue mb-2 
+                               group-hover:text-cyber-pink transition-colors duration-700">
+                    {member.name}
+                  </h3>
+                  <p className="text-gray-300 group-hover:text-cyber-blue/80 transition-colors duration-700">
+                    {member.role}
+                  </p>
+                </motion.div>
               ))}
-            </TeamGrid>
-          </DepartmentSection>
-        ))}
-      </Content>
-    </TeamContainer>
+            </div>
+          </div>
+
+          {/* Chairperson Section */}
+          <div className="w-full flex flex-col items-center mb-20">
+            <motion.h1
+              className="text-5xl md:text-6xl text-center mb-12 font-bold bg-gradient-to-r from-cyber-pink via-cyber-purple to-cyber-blue bg-clip-text text-transparent"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2 }}
+            >
+              CHAIRPERSON
+            </motion.h1>
+            <div className="w-full max-w-4xl flex justify-center">
+              {teamMembers.chairpersons.map((member, index) => (
+                <motion.div
+                  key={index}
+                  className="w-full max-w-[280px] text-center p-8 bg-black/40 backdrop-blur-sm rounded-xl 
+                            border border-cyber-blue/30 
+                            shadow-[0_0_15px_rgba(0,243,255,0.2)] 
+                            hover:shadow-[0_0_30px_rgba(0,243,255,0.4)]
+                            transition-all duration-700 hover:-translate-y-2
+                            group"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                >
+                  <div className="relative overflow-hidden">
+                    <img 
+                      src={member.image} 
+                      alt={member.name} 
+                      className="w-full h-auto object-cover mx-auto mb-4 
+                               border-2 border-cyber-blue/50 
+                               group-hover:border-cyber-pink/50 
+                               transition-all duration-700
+                               group-hover:scale-105"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-bold text-cyber-blue mb-2 
+                               group-hover:text-cyber-pink transition-colors duration-700">
+                    {member.name}
+                  </h3>
+                  <p className="text-gray-300 group-hover:text-cyber-blue/80 transition-colors duration-700">
+                    {member.role}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Deputy Chairperson Section */}
+          <div className="w-full flex flex-col items-center mb-20">
+            <motion.h1
+              className="text-5xl md:text-6xl text-center mb-12 font-bold bg-gradient-to-r from-cyber-blue via-cyber-purple to-cyber-pink bg-clip-text text-transparent "
+              initial={{ opacity: 1, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2 }}
+            >
+              DEPUTY CHAIRPERSON
+            </motion.h1>
+            <div className="w-full max-w-4xl flex justify-center">
+              {teamMembers.deputyChairperson.map((member, index) => (
+                <motion.div
+                  key={index}
+                  className="w-full max-w-[280px] text-center p-8 bg-black/40 backdrop-blur-sm rounded-xl 
+                            border border-cyber-blue/30 
+                            shadow-[0_0_15px_rgba(0,243,255,0.2)] 
+                            hover:shadow-[0_0_30px_rgba(0,243,255,0.4)]
+                            transition-all duration-700 hover:-translate-y-2
+                            group"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                >
+                  <div className="relative overflow-hidden">
+                    <img 
+                      src={member.image} 
+                      alt={member.name} 
+                      className="w-full h-auto object-cover mx-auto mb-4 
+                               border-2 border-cyber-blue/50 
+                               group-hover:border-cyber-pink/50 
+                               transition-all duration-700
+                               group-hover:scale-105"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-bold text-cyber-blue mb-2 
+                               group-hover:text-cyber-pink transition-colors duration-700">
+                    {member.name}
+                  </h3>
+                  <p className="text-gray-300 group-hover:text-cyber-blue/80 transition-colors duration-700">
+                    {member.role}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Vice Chairperson Section */}
+          <div className="w-full flex flex-col items-center mb-20">
+            <motion.h1
+              className="text-5xl md:text-6xl text-center mb-12 font-bold bg-gradient-to-r from-cyber-blue via-cyber-purple to-cyber-pink bg-clip-text text-transparent"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2 }}
+            >
+              VICE CHAIRPERSON
+            </motion.h1>
+            <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 place-items-center">
+              {teamMembers.viceChairpersons.map((member, index) => (
+                <motion.div
+                  key={index}
+                  className="w-full max-w-[280px] text-center p-8 bg-black/40 backdrop-blur-sm rounded-xl 
+                            border border-cyber-blue/30 
+                            shadow-[0_0_15px_rgba(0,243,255,0.2)] 
+                            hover:shadow-[0_0_30px_rgba(0,243,255,0.4)]
+                            transition-all duration-700 hover:-translate-y-2
+                            group"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                >
+                  <div className="relative overflow-hidden">
+                    <img 
+                      src={member.image} 
+                      alt={member.name} 
+                      className="w-full h-auto object-cover mx-auto mb-4 
+                               border-2 border-cyber-blue/50 
+                               group-hover:border-cyber-pink/50 
+                               transition-all duration-700
+                               group-hover:scale-105"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-bold text-cyber-blue mb-2 
+                               group-hover:text-cyber-pink transition-colors duration-700">
+                    {member.name}
+                  </h3>
+                  <p className="text-gray-300 group-hover:text-cyber-blue/80 transition-colors duration-700">
+                    {member.role}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Departments Section */}
+          <motion.h1
+            className="text-5xl md:text-6xl text-center mb-20 font-bold bg-gradient-to-r from-cyber-green via-cyber-blue to-cyber-purple bg-clip-text text-transparent"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2 }}
+          >
+            HEAD OF DEPARTMENTS
+          </motion.h1>
+          {Object.entries(teamMembers.departments).map(([dept, members], deptIndex) => (
+            <div key={dept} className="w-full flex flex-col items-center mb-20">
+              <motion.h2 
+                className={`text-3xl text-center mb-12 font-bold 
+                           bg-gradient-to-r ${
+                             deptIndex % 2 === 0 
+                             ? 'from-cyber-blue via-cyber-purple to-cyber-pink' 
+                             : 'from-cyber-pink via-cyber-purple to-cyber-blue'
+                           } bg-clip-text text-transparent`}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2 }}
+              >
+                {dept === 'pr' ? 'PUBLIC RELATIONS' : 
+                 dept === 'gaming' ? 'GAMING & SPORTS' :
+                 dept.toUpperCase()}
+              </motion.h2>
+              <div className={`w-full max-w-7xl ${
+                members.length === 1 
+                  ? 'flex justify-center'
+                  : 'grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center'
+              }`}>
+                {members.map((member, index) => (
+                  <motion.div
+                    key={index}
+                    className="w-full max-w-[280px] text-center p-8 bg-black/40 backdrop-blur-sm rounded-xl 
+                              border border-cyber-blue/30 
+                              shadow-[0_0_15px_rgba(0,243,255,0.2)] 
+                              hover:shadow-[0_0_30px_rgba(0,243,255,0.4)]
+                              transition-all duration-700 hover:-translate-y-2
+                              group"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: index * 0.2 }}
+                  >
+                    <div className="relative overflow-hidden">
+                      <img 
+                        src={member.image} 
+                        alt={member.name} 
+                        className="w-full h-auto object-cover mx-auto mb-4 
+                                 border-2 border-cyber-blue/50 
+                                 group-hover:border-cyber-pink/50 
+                                 transition-all duration-700
+                                 group-hover:scale-105"
+                      />
+                    </div>
+                    <h3 className="text-2xl font-bold text-cyber-blue/80 mb-2 
+                                 group-hover:text-gray-100 transition-colors duration-700">
+                      {member.name}
+                    </h3>
+                    <p className="text-gray-400 group-hover:text-gray-100 transition-colors duration-700 font-bold">
+                      {member.role}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </CyberLayout>
   );
 }
 

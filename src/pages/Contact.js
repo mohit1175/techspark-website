@@ -1,72 +1,5 @@
 import { motion } from 'framer-motion';
-import styled from '@emotion/styled';
-
-const ContactContainer = styled.div`
-  min-height: 100vh;
-  padding: 80px 2rem 2rem;
-`;
-
-const Content = styled.div`
-  max-width: 600px;
-  margin: 0 auto;
-`;
-
-const Title = styled(motion.h1)`
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  text-align: center;
-  color: #1a1a1a;
-`;
-
-const Form = styled(motion.form)`
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-`;
-
-const Input = styled.input`
-  padding: 0.8rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
-  
-  &:focus {
-    outline: none;
-    border-color: #00ff88;
-  }
-`;
-
-const TextArea = styled.textarea`
-  padding: 0.8rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
-  min-height: 150px;
-  resize: vertical;
-  
-  &:focus {
-    outline: none;
-    border-color: #00ff88;
-  }
-`;
-
-const Button = styled(motion.button)`
-  padding: 1rem 2rem;
-  background: #1a1a1a;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  
-  &:hover {
-    background: #333;
-  }
-`;
+import CyberLayout from '../components/CyberLayout';
 
 function Contact() {
   const handleSubmit = (e) => {
@@ -75,35 +8,60 @@ function Contact() {
   };
 
   return (
-    <ContactContainer>
-      <Content>
-        <Title
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          Contact Us
-        </Title>
-        <Form
-          onSubmit={handleSubmit}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <Input type="text" placeholder="Name" required />
-          <Input type="email" placeholder="Email" required />
-          <Input type="text" placeholder="Subject" required />
-          <TextArea placeholder="Your message..." required />
-          <Button
-            type="submit"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+    <CyberLayout>
+      <div className="px-8 pt-20">
+        <div className="max-w-2xl mx-auto">
+          <motion.h1
+            className="text-4xl mb-8 text-center text-gray-900"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            Send Message
-          </Button>
-        </Form>
-      </Content>
-    </ContactContainer>
+            Contact Us
+          </motion.h1>
+
+          <motion.form
+            className="flex flex-col gap-6 bg-white p-8 rounded-lg shadow-lg"
+            onSubmit={handleSubmit}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <input
+              type="text"
+              placeholder="Name"
+              required
+              className="p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-green-400"
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              required
+              className="p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-green-400"
+            />
+            <input
+              type="text"
+              placeholder="Subject"
+              required
+              className="p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-green-400"
+            />
+            <textarea
+              placeholder="Your message..."
+              required
+              className="p-3 border border-gray-200 rounded-lg min-h-[150px] resize-y focus:outline-none focus:border-green-400"
+            />
+            <motion.button
+              type="submit"
+              className="px-8 py-4 bg-gray-900 text-white rounded-lg hover:bg-gray-800"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Send Message
+            </motion.button>
+          </motion.form>
+        </div>
+      </div>
+    </CyberLayout>
   );
 }
 
