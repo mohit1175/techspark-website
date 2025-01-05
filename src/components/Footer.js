@@ -3,10 +3,9 @@ import { motion } from 'framer-motion';
 
 function Footer() {
   return (
-    <footer className="bg-black text-white py-12 px-4 mt-16 border-t border-cyber-blue/30">
+    <footer className="bg-black text-white py-8 sm:py-12 px-4 border-t border-cyber-blue/30">
       <div className="container mx-auto max-w-7xl">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
           {/* TechSpark Section */}
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-cyber-blue mb-4 tracking-wide">TechSpark</h3>

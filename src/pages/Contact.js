@@ -9,19 +9,20 @@ function Contact() {
 
   return (
     <CyberLayout>
-      <div className="px-8 pt-20">
+      <div className="min-h-screen px-4 sm:px-6 lg:px-8 py-20">
         <div className="max-w-2xl mx-auto">
           <motion.h1
-            className="text-4xl mb-8 text-center text-gray-900"
+            className="text-5xl md:text-6xl text-center mb-12 font-bold text-slate-400"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Contact Us
+            CONTACT US
           </motion.h1>
 
           <motion.form
-            className="flex flex-col gap-6 bg-white p-8 rounded-lg shadow-lg"
+            className="flex flex-col gap-6 bg-black/40 backdrop-blur-sm p-8 rounded-xl 
+                       border border-cyber-blue/30 shadow-[0_0_15px_rgba(0,243,255,0.2)]"
             onSubmit={handleSubmit}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -31,32 +32,43 @@ function Contact() {
               type="text"
               placeholder="Name"
               required
-              className="p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-green-400"
+              className="p-4 bg-black/60 text-white placeholder-gray-400 border border-cyber-blue/30 
+                         rounded-lg focus:outline-none focus:border-cyber-blue focus:shadow-[0_0_10px_rgba(0,243,255,0.3)]
+                         transition-all duration-300"
             />
             <input
               type="email"
               placeholder="Email"
               required
-              className="p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-green-400"
+              className="p-4 bg-black/60 text-white placeholder-gray-400 border border-cyber-blue/30 
+                         rounded-lg focus:outline-none focus:border-cyber-blue focus:shadow-[0_0_10px_rgba(0,243,255,0.3)]
+                         transition-all duration-300"
             />
             <input
               type="text"
               placeholder="Subject"
               required
-              className="p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-green-400"
+              className="p-4 bg-black/60 text-white placeholder-gray-400 border border-cyber-blue/30 
+                         rounded-lg focus:outline-none focus:border-cyber-blue focus:shadow-[0_0_10px_rgba(0,243,255,0.3)]
+                         transition-all duration-300"
             />
             <textarea
               placeholder="Your message..."
               required
-              className="p-3 border border-gray-200 rounded-lg min-h-[150px] resize-y focus:outline-none focus:border-green-400"
+              className="p-4 bg-black/60 text-white placeholder-gray-400 border border-cyber-blue/30 
+                         rounded-lg min-h-[150px] resize-y focus:outline-none focus:border-cyber-blue 
+                         focus:shadow-[0_0_10px_rgba(0,243,255,0.3)] transition-all duration-300"
             />
             <motion.button
               type="submit"
-              className="px-8 py-4 bg-gray-900 text-white rounded-lg hover:bg-gray-800"
+              className="px-8 py-4 bg-black text-cyber-blue font-bold rounded-lg
+                         border border-cyber-blue/30 hover:border-white
+                         hover:shadow-[0_0_15px_rgba(0,243,255,0.3)]
+                         transition-all duration-300"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Send Message
+              SEND MESSAGE
             </motion.button>
           </motion.form>
         </div>

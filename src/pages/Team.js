@@ -56,13 +56,12 @@ function Team() {
 
   return (
     <CyberLayout>
-      <div className="min-h-screen px-4 sm:px-6 lg:px-8 py-20">
+      <div className="min-h-screen px-4 sm:px-6 lg:px-8 py-20 text-slate-400">
         <div className="container mx-auto max-w-7xl flex flex-col items-center">
           {/* Teacher In-Charge Section */}
           <div className="w-full flex flex-col items-center mb-20">
             <motion.h1
-              className="text-5xl md:text-6xl text-center mb-12 font-bold bg-gradient-to-r from-cyber-blue via-cyber-purple to-cyber-pink bg-clip-text text-transparent"
-              initial={{ opacity: 0, y: -20 }}
+              className="text-5xl md:text-6xl text-center mb-12 font-bold text-slate-400"
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2 }}
             >
@@ -109,7 +108,7 @@ function Team() {
           {/* Chairperson Section */}
           <div className="w-full flex flex-col items-center mb-20">
             <motion.h1
-              className="text-5xl md:text-6xl text-center mb-12 font-bold bg-gradient-to-r from-cyber-pink via-cyber-purple to-cyber-blue bg-clip-text text-transparent"
+              className="text-5xl md:text-6xl text-center mb-12 font-bold text-slate-400"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2 }}
@@ -156,7 +155,7 @@ function Team() {
           {/* Deputy Chairperson Section */}
           <div className="w-full flex flex-col items-center mb-20">
             <motion.h1
-              className="text-5xl md:text-6xl text-center mb-12 font-bold bg-gradient-to-r from-cyber-blue via-cyber-purple to-cyber-pink bg-clip-text text-transparent "
+              className="text-5xl md:text-6xl text-center mb-12 font-bold text-slate-400"
               initial={{ opacity: 1, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2 }}
@@ -203,7 +202,7 @@ function Team() {
           {/* Vice Chairperson Section */}
           <div className="w-full flex flex-col items-center mb-20">
             <motion.h1
-              className="text-5xl md:text-6xl text-center mb-12 font-bold bg-gradient-to-r from-cyber-blue via-cyber-purple to-cyber-pink bg-clip-text text-transparent"
+              className="text-5xl md:text-6xl text-center mb-12 font-bold text-slate-400"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2 }}
@@ -249,7 +248,7 @@ function Team() {
 
           {/* Departments Section */}
           <motion.h1
-            className="text-5xl md:text-6xl text-center mb-20 font-bold bg-gradient-to-r from-cyber-green via-cyber-blue to-cyber-purple bg-clip-text text-transparent"
+            className="text-5xl md:text-6xl text-center mb-20 font-bold text-slate-400"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2 }}
@@ -259,12 +258,7 @@ function Team() {
           {Object.entries(teamMembers.departments).map(([dept, members], deptIndex) => (
             <div key={dept} className="w-full flex flex-col items-center mb-20">
               <motion.h2 
-                className={`text-3xl text-center mb-12 font-bold 
-                           bg-gradient-to-r ${
-                             deptIndex % 2 === 0 
-                             ? 'from-cyber-blue via-cyber-purple to-cyber-pink' 
-                             : 'from-cyber-pink via-cyber-purple to-cyber-blue'
-                           } bg-clip-text text-transparent`}
+                className="text-3xl text-center mb-12 font-bold text-slate-400"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2 }}
