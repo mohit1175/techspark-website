@@ -1,92 +1,99 @@
-import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-
-const FooterContainer = styled.footer`
-  background: #1a1a1a;
-  color: white;
-  padding: 3rem 2rem;
-  margin-top: 4rem;
-`;
-
-const Content = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-`;
-
-const Section = styled.div`
-  h3 {
-    color: #00ff88;
-    margin-bottom: 1rem;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  li {
-    margin-bottom: 0.5rem;
-  }
-
-  a {
-    color: white;
-    text-decoration: none;
-    &:hover {
-      color: #00ff88;
-    }
-  }
-`;
-
-const Copyright = styled.div`
-  text-align: center;
-  margin-top: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid #333;
-  color: #666;
-`;
 
 function Footer() {
   return (
-    <FooterContainer>
-      <Content>
-        <Section>
-          <h3>TechSpark</h3>
-          <p>Igniting Innovation and Transforming Technology</p>
-        </Section>
-        <Section>
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/team">Team</a></li>
-            <li><a href="/events">Events</a></li>
-          </ul>
-        </Section>
-        <Section>
-          <h3>Contact</h3>
-          <ul>
-            <li>Email: info@techspark.com</li>
-            <li>Phone: (123) 456-7890</li>
-            <li>Address: 123 Tech Street</li>
-          </ul>
-        </Section>
-        <Section>
-          <h3>Follow Us</h3>
-          <ul>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">LinkedIn</a></li>
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Instagram</a></li>
-          </ul>
-        </Section>
-      </Content>
-      <Copyright>
-        <p>&copy; {new Date().getFullYear()} TechSpark. All rights reserved.</p>
-      </Copyright>
-    </FooterContainer>
+    <footer className="bg-black text-white py-12 px-4 mt-16 border-t border-cyber-blue/30">
+      <div className="container mx-auto max-w-7xl">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* TechSpark Section */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold text-cyber-blue mb-4 tracking-wide">TechSpark</h3>
+            <p className="text-gray-300">Igniting Innovation and Transforming Technology</p>
+          </div>
+
+          {/* Quick Links Section */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold text-cyber-blue mb-4 tracking-wide">Quick Links</h3>
+            <ul className="space-y-2">
+              {[
+                { to: '/', label: 'Home' },
+                { to: '/about', label: 'About' },
+                { to: '/team', label: 'Team' },
+                { to: '/events', label: 'Events' }
+              ].map((link) => (
+                <li key={link.to}>
+                  <Link 
+                    to={link.to}
+                    className="text-gray-300 hover:text-cyber-blue transition-colors duration-300"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Section */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold text-cyber-blue mb-4 tracking-wide">Contact</h3>
+            <ul className="space-y-2 text-gray-300">
+              <li className="flex items-center gap-2">
+                <span>Email:</span>
+                <a 
+                  href="mailto:info@techspark.com"
+                  className="hover:text-cyber-blue transition-colors duration-300"
+                >
+                  info@techspark.com
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <span>Phone:</span>
+                <a 
+                  href="tel:+911234567890"
+                  className="hover:text-cyber-blue transition-colors duration-300"
+                >
+                  +91 123 456 7890
+                </a>
+              </li>
+              <li>Mithibai College, Mumbai</li>
+            </ul>
+          </div>
+
+          {/* Social Links Section */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold text-cyber-blue mb-4 tracking-wide">Follow Us</h3>
+            <ul className="space-y-2">
+              {[
+                { href: '#', label: 'Instagram' },
+                { href: '#', label: 'LinkedIn' },
+                { href: '#', label: 'Twitter' },
+                { href: '#', label: 'Facebook' }
+              ].map((social) => (
+                <li key={social.label}>
+                  <a 
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-300 hover:text-cyber-blue transition-colors duration-300"
+                  >
+                    {social.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Copyright Section */}
+        <div className="mt-12 pt-8 border-t border-gray-800 text-center">
+          <p className="text-gray-500">
+            &copy; {new Date().getFullYear()} TechSpark. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
   );
 }
 

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import CyberLayout from '../components/CyberLayout';
 
 function Home() {
@@ -79,16 +80,21 @@ function Home() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            9th - 10th February 2024
+            8th - 9th February 2025
           </motion.p>
           
-          <motion.button
-            className="mt-8 px-10 py-4 text-lg bg-black text-white rounded-full hover:-translate-y-1 transition-transform duration-200 shadow-lg"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Register Now
-          </motion.button>
+          <Link to="/events">
+            <motion.button
+              className="mt-8 px-10 py-4 text-lg bg-black text-cyber-blue font-extrabold  rounded-full 
+                        hover:-translate-y-1 transition-transform duration-200 shadow-lg
+                        border border-cyber-blue/30 hover:border-white
+                        hover:shadow-[0_0_15px_rgba(0,243,255,0.3)]"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Register Now
+            </motion.button>
+          </Link>
         </motion.div>
       </div>
 
